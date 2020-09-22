@@ -9,7 +9,7 @@ namespace LocalNews
         public App()
         {
             InitializeComponent();
-
+            //hello
             MainPage = new MainPage();
         }
 
