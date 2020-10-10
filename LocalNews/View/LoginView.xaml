@@ -16,9 +16,10 @@
                 </Label>
             </StackLayout>
             <StackLayout x:Name="registerStack" IsVisible="False" VerticalOptions="CenterAndExpand">
+                <Entry x:Name="Name" Placeholder="Name"/>
                 <Entry x:Name="emailEntryRegister" Placeholder="Email"/>
                 <Entry x:Name="passwordEntryRegister" Placeholder="Password" IsPassword="True"/>
-                <Entry x:Name="passwordValidationEntryRegister" Placeholder="Password" IsPassword="True"/>
+                <Entry x:Name="passwordValidationEntryRegister" Placeholder="Re-enter Password" IsPassword="True"/>
                 <Button x:Name="buttonRegister" Text="Register"/>
                 <Label Text="You are already signed up?"/>
                 <Label Text="Login" TextColor="Red">
