@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LocalNews.View.LoginView">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout x:Name="loginStack" IsVisible="True">
+                <Entry x:Name="emailEntryLogin" Placeholder="Email"/>
+                <Entry x:Name="passwordEntryLogin" Placeholder="Password" IsPassword="True"/>
+                <Button x:Name="buttonLogin" Text="Login"/>
+                <Label Text="You are not signed up yet? "/>
+                <Label Text="Register" TextColor="Red">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="RegisterTapGesture_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <StackLayout x:Name="registerStack" IsVisible="False">
+                <Entry x:Name="emailEntryRegister" Placeholder="Email"/>
+                <Entry x:Name="passwordEntryRegister" Placeholder="Password" IsPassword="True"/>
+                <Entry x:Name="passwordValidationEntryRegister" Placeholder="Password" IsPassword="True"/>
+                <Button x:Name="buttonRegister" Text="Register"/>
+                <Label Text="You are already signed up?"/>
+                <Label Text="Login" TextColor="Red">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="LoginTapGesture_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
