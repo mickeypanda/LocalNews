@@ -99,7 +99,12 @@ namespace LocalNews.ViewModel
             if (Password != ConfirmPassword)
                 await App.Current.MainPage.DisplayAlert("Error", "Passwords don't match.", "Ok");
             else
-                await Auth.RegisterUser(Name, Email, Password);
+            {
+                var result= await Auth.RegisterUser(Name, Email, Password);
+                if (result)
+                    await App.Current.MainPage.Navigation.PopAsync();
+            }
+                
         }
 
         private bool LoginCanExecute(object parameter)
@@ -109,7 +114,9 @@ namespace LocalNews.ViewModel
 
         private async void Login(object parameter)
         {
-            await Auth.AuthenticateUser(Email, Password);
+            var result = await Auth.AuthenticateUser(Email, Password);
+            if (result)
+                await App.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace LocalNews
         {
             InitializeComponent();
             //hello
-            MainPage = new LoginView();
+            MainPage = new NavigationPage(new SubscriptionsView());
         }
 
         protected override void OnStart()
