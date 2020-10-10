@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "959607577890",
+    "firebase_url": "https://local-news-57272.firebaseio.com",
+    "project_id": "local-news-57272",
+    "storage_bucket": "local-news-57272.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:959607577890:android:b9ce12b3a1a4d44238197b",
+        "android_client_info": {
+          "package_name": "com.panda.localnews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "959607577890-mfheekuvo9i6c9q7gib0n2tc1q4v7aod.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrHT_5fDsBQSE0rSw6O4RvuidSdfc0TYQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "959607577890-mfheekuvo9i6c9q7gib0n2tc1q4v7aod.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
