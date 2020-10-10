@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocalNews.View;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace LocalNews
         {
             InitializeComponent();
             //hello
-            MainPage = new MainPage();
+            MainPage = new LoginView();
         }
 
         protected override void OnStart()
