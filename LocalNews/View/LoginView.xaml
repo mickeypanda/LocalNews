@@ -4,7 +4,7 @@
              x:Class="LocalNews.View.LoginView">
     <ContentPage.Content>
         <Grid>
-            <StackLayout x:Name="loginStack" IsVisible="True">
+            <StackLayout x:Name="loginStack" IsVisible="True" VerticalOptions="CenterAndExpand">
                 <Entry x:Name="emailEntryLogin" Placeholder="Email"/>
                 <Entry x:Name="passwordEntryLogin" Placeholder="Password" IsPassword="True"/>
                 <Button x:Name="buttonLogin" Text="Login"/>
@@ -15,7 +15,7 @@
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
-            <StackLayout x:Name="registerStack" IsVisible="False">
+            <StackLayout x:Name="registerStack" IsVisible="False" VerticalOptions="CenterAndExpand">
                 <Entry x:Name="emailEntryRegister" Placeholder="Email"/>
                 <Entry x:Name="passwordEntryRegister" Placeholder="Password" IsPassword="True"/>
                 <Entry x:Name="passwordValidationEntryRegister" Placeholder="Password" IsPassword="True"/>
