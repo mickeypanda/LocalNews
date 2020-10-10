@@ -1,13 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:LocalNews.ViewModel"
              x:Class="LocalNews.View.LoginView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:LoginViewModel x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid>
+        <Grid BindingContext="{StaticResource vm}">
             <StackLayout x:Name="loginStack" IsVisible="True" VerticalOptions="CenterAndExpand">
-                <Entry x:Name="emailEntryLogin" Placeholder="Email"/>
-                <Entry x:Name="passwordEntryLogin" Placeholder="Password" IsPassword="True"/>
-                <Button x:Name="buttonLogin" Text="Login"/>
+                <Entry x:Name="emailEntryLogin" Text="{Binding Email, Mode=TwoWay}" Placeholder="Email" />
+                <Entry x:Name="passwordEntryLogin" Text="{Binding Password, Mode=TwoWay}" Placeholder="Password" IsPassword="True"/>
+                <Button x:Name="buttonLogin" Text="Login" Command="{Binding LoginCommand}" CommandParameter="{Binding CanLogin}"/>
                 <Label Text="You are not signed up yet? "/>
                 <Label Text="Register" TextColor="Red">
                     <Label.GestureRecognizers>
@@ -16,11 +22,11 @@
                 </Label>
             </StackLayout>
             <StackLayout x:Name="registerStack" IsVisible="False" VerticalOptions="CenterAndExpand">
-                <Entry x:Name="Name" Placeholder="Name"/>
-                <Entry x:Name="emailEntryRegister" Placeholder="Email"/>
-                <Entry x:Name="passwordEntryRegister" Placeholder="Password" IsPassword="True"/>
-                <Entry x:Name="passwordValidationEntryRegister" Placeholder="Re-enter Password" IsPassword="True"/>
-                <Button x:Name="buttonRegister" Text="Register"/>
+                <Entry x:Name="Name" Text="{Binding Name,Mode=TwoWay}" Placeholder="Name"/>
+                <Entry x:Name="emailEntryRegister" Text="{Binding Email,Mode=TwoWay}" Placeholder="Email"/>
+                <Entry x:Name="passwordEntryRegister" Text="{Binding Password,Mode=TwoWay}" Placeholder="Password" IsPassword="True"/>
+                <Entry x:Name="passwordValidationEntryRegister" Text="{Binding ConfirmPassword, Mode=TwoWay}" Placeholder="Re-enter Password" IsPassword="True"/>
+                <Button x:Name="buttonRegister" Text="Register" Command="{Binding RegisterCommand}" CommandParameter="{Binding CanRegister}"/>
                 <Label Text="You are already signed up?"/>
                 <Label Text="Login" TextColor="Red">
                     <Label.GestureRecognizers>
