@@ -1,5 +1,6 @@
 ﻿using LocalNews.Helpers;
 using LocalNews.Model;
+using LocalNews.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,6 +19,20 @@ namespace LocalNews.ViewModel
             { 
                 subscriptions = value;
                 OnPropertyChanged("Subscriptions");
+            }
+        }
+
+        private Subscription selectedSubscription;
+
+        public Subscription SelectedSubscription
+        {
+            get { return selectedSubscription; }
+            set 
+            { 
+                selectedSubscription = value;
+                OnPropertyChanged("SelectedSubscription");
+                if (SelectedSubscription != null)
+                    App.Current.MainPage.Navigation.PushAsync(new SubscriptionDetailView(SelectedSubscription));
             }
         }
 

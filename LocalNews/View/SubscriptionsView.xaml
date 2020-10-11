@@ -13,7 +13,9 @@
         <ToolbarItem Text="Add" Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding Source={StaticResource vm}, Path=Subscriptions}">
+        <ListView BindingContext="{StaticResource vm}"
+            ItemsSource="{Binding Subscriptions}"
+            SelectedItem="{Binding SelectedSubscription}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Name}" Detail="{Binding SubscriptionDate}"/>

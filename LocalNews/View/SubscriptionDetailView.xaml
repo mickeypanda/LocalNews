@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:LocalNews.ViewModel"
+             x:Class="LocalNews.View.SubscriptionDetailView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:SubscriptionDetailsViewModel x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Update" BindingContext="{StaticResource vm}"
+                     Command="{Binding UpdateCommand}"
+                     CommandParameter="{Binding Name}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout BindingContext="{StaticResource vm}" Margin="16">
+            <Entry Placeholder="Subscription name" Text="{Binding Name,Mode=TwoWay}"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Is the subscription still active?" VerticalOptions="CenterAndExpand"/>
+                <CheckBox IsChecked="{Binding IsActive,Mode=TwoWay}"/>
+            </StackLayout>
+            <Button Text="Delete" BackgroundColor="Red" Margin="16" Command="{Binding DeleteCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
