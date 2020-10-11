@@ -18,7 +18,7 @@
             SelectedItem="{Binding SelectedSubscription}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}" Detail="{Binding SubscriptionDate}"/>
+                    <TextCell Text="{Binding Name}" Detail="{Binding SubscriptionDate}" DetailColor="Aqua"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
