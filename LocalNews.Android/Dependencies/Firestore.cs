@@ -23,9 +23,17 @@ namespace LocalNews.Droid.Dependencies
         {
             subscriptions = new List<Subscription>();
         }
-        public Task<bool> DeleteSubscription(Subscription subscription)
+        public async Task<bool> DeleteSubscription(Subscription subscription)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var collection = Firebase.Firestore.FirebaseFirestore.Instance.Collection("subscriptions");
+                collection.Document(subscription.Id).Delete();
+                return true;
+            }catch(Exception ex)
+            {
+                return false;
+            }
         }
 
         public bool InsertSubscription(Subscription subscription)
