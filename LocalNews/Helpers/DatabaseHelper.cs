@@ -4,12 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace LocalNews.Helpers
 {
     public interface IFirestore
     {
-        Task<bool> InsertSubscription(Subscription subscription);
+        bool InsertSubscription(Subscription subscription);
         Task<bool> DeleteSubscription(Subscription subscription);
         Task<bool> UpdateSubscription(Subscription subscription);
         Task<IList<Subscription>> ReadSubscriptions();
@@ -17,13 +18,13 @@ namespace LocalNews.Helpers
     }
     public class DatabaseHelper
     {
-        private IFirestore firestore;
+        private static IFirestore firestore= DependencyService.Get<IFirestore>();
         public Task<bool> DeleteSubscription(Subscription subscription)
         {
             return firestore.DeleteSubscription(subscription);
         }
 
-        public Task<bool> InsertSubscription(Subscription subscription)
+        public bool InsertSubscription(Subscription subscription)
         {
             return firestore.InsertSubscription(subscription);
         }
