@@ -64,7 +64,8 @@ namespace LocalNews.Droid.Dependencies
                         IsActive = (bool)doc.Get("isActive"),
                         Name = doc.Get("name").ToString(),
                         UserId=doc.Get("auther").ToString(),
-                        SubscriptionDate=nativeDateToDateTime(doc.Get("subscriptionDate") as Date)
+                        SubscriptionDate=nativeDateToDateTime(doc.Get("subscriptionDate") as Date),
+                        Id=doc.Id
                     };
                     subscriptions.Add(subscription);
                 }
@@ -98,9 +99,17 @@ namespace LocalNews.Droid.Dependencies
             return subscriptions;
         }
 
-        public Task<bool> UpdateSubscription(Subscription subscription)
+        public async Task<bool> UpdateSubscription(Subscription subscription)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var collection = Firebase.Firestore.FirebaseFirestore.Instance.Collection("subscriptions");
+                collection.Document(subscription.Id).Update("name", subscription.Name, "isActive", subscription.IsActive);
+                return true;
+            }catch(Exception ex)
+            {
+                return false;
+            }
         }
 
         //This method is used for converting DateTime type to Java.Util.Date type

@@ -61,14 +61,22 @@ namespace LocalNews.ViewModel
             DeleteCommand = new Command(Delete);
         }
 
-        private void Delete(object obj)
+        private async void Delete(object obj)
         {
-            DatabaseHelper.DeleteSubscription(Subscription);
+            var result = await DatabaseHelper.DeleteSubscription(Subscription);
+            if (result)
+                await App.Current.MainPage.Navigation.PopAsync();
+            else
+                await App.Current.MainPage.DisplayAlert("Error", "Some error occured while deleting the data", "Ok");
         }
 
-        private void Update(object parameter)
+        private async void Update(object parameter)
         {
-            DatabaseHelper.UpdateSubscription(Subscription);
+            var result = await DatabaseHelper.UpdateSubscription(Subscription);
+            if (result)
+                await App.Current.MainPage.Navigation.PopAsync();
+            else
+                await App.Current.MainPage.DisplayAlert("Error", "Some error occured while updating the data", "Ok");
         }
 
         private bool UpdateCanExecute(object parameter)
