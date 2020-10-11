@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace LocalNews.ViewModel
 {
-    class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
         private string  name;
 

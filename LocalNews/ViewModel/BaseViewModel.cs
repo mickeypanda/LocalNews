@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LocalNews.ViewModel
 {
-    class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
