@@ -40,13 +40,18 @@ namespace LocalNews.ViewModel
 
         private void SaveSubscriptionImplementation(object obj)
         {
-            DatabaseHelper.InsertSubscription(new Model.Subscription
+            var result = DatabaseHelper.InsertSubscription(new Model.Subscription
             {
                 UserId = Auth.GetCurrentUserID(),
                 Name = this.Name,
                 SubscriptionDate = DateTime.Now,
                 IsActive = this.IsActive
             });
+
+            if (result)
+                App.Current.MainPage.Navigation.PopAsync();
+            else
+                App.Current.MainPage.DisplayAlert("Error", "Some error occured while adding the subscription.", "Ok");
         }
 
         private bool SaveSubscriptionCanExecute(object arg)
