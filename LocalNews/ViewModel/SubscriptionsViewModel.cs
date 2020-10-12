@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace LocalNews.ViewModel
 {
@@ -36,9 +38,20 @@ namespace LocalNews.ViewModel
             }
         }
 
+        public ICommand SignoutCommand { get; set; }
         public SubscriptionsViewModel()
         {
             Subscriptions = new ObservableCollection<Subscription>();
+            SignoutCommand = new Command(SignoutImplementation);
+        }
+
+        private async void SignoutImplementation(object parameter)
+        {
+            var result = await Auth.SignoutUser();
+            if (result)
+                await App.Current.MainPage.Navigation.PushAsync(new LoginView());
+            else
+                await App.Current.MainPage.DisplayAlert("Error", "Error in signout process.", "Ok");
         }
 
         public async void AssignSubscriptions()

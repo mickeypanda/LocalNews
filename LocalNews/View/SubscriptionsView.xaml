@@ -11,6 +11,7 @@
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="ToolbarItem_Clicked"/>
+        <ToolbarItem Text="Signout" Command="{Binding Source={StaticResource vm},Path=SignoutCommand}" Order="Secondary" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView BindingContext="{StaticResource vm}"

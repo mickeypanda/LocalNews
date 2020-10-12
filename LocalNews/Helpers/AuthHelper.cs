@@ -10,11 +10,12 @@ namespace LocalNews.Helpers
     {
         Task<bool> RegisterUser(string name, string email, string password);
         Task<bool> AuthenticateUser(string email, string password);
+        Task<bool> SignoutUser();
         bool IsAuthenticated();
         string GetCurrentUserID();
     }
 
-    public class Auth
+    public class Auth 
     {
         private static IAuth auth = DependencyService.Get<IAuth>();
         public static async Task<bool> RegisterUser(string name, string email, string password)
@@ -49,5 +50,12 @@ namespace LocalNews.Helpers
         {
             return auth.GetCurrentUserID();
         }
+
+
+        public static async Task<bool> SignoutUser()
+        {
+            return await auth.SignoutUser();
+        }
+
     }
 }

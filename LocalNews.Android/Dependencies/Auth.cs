@@ -85,5 +85,17 @@ namespace LocalNews.Droid.Dependencies
             }
             
         }
+
+        public async Task<bool> SignoutUser()
+        {
+            try
+            {
+                Firebase.Auth.FirebaseAuth.Instance.SignOut();
+                return true;
+            }catch(Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }
